@@ -1,0 +1,46 @@
+.feature-img {
+  background-image: url("../../assets/Images/honey-nut.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 100%;
+}
+
+.shop-banner {
+  background-image: url("../../assets/Images/banner4.5.png");
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.videoSlider.swiper {
+  padding-top: 50px !important;
+}
+.videoSlider .swiper-button-prev {
+  top: 10% !important;
+  left: 95% !important;
+}
+
+.videoSlider .swiper-button-next:after,
+.videoSlider .swiper-button-prev:after {
+  font-size: 27px !important;
+}
+
+.videoSlider .swiper-button-next {
+  top: 10% !important;
+  left: 98% !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .videoSlider .swiper-button-prev {
+    left: 85% !important;
+  }
+  .videoSlider .swiper-button-next {
+    left: 90% !important;
+  }
+}
+
+.videoSlider.reviewSlider {
+  padding-top: 80px !important;
+}

@@ -1,0 +1,54 @@
+.active {
+  color: #e4ae0b;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav {
+    position: absolute;
+    top: 120%;
+    right: 2%;
+    background: #fff;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 -3px 13px -4px #0000000d, 0 8px 9px -5px #0000000d !important;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(999px) rotateX(-10deg) translateZ(0)
+      translate3d(0, 0px, 0) !important;
+    transform-origin: 50% 0;
+    will-change: transform, box-shadow;
+
+    transition: 0.5s;
+  }
+  .navShow {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: perspective(999px) rotateX(0deg) translateZ(0)
+      translate3d(0, 0px, 0) !important;
+  }
+
+  .nav a {
+    padding: 6px 0px;
+    display: block;
+  }
+
+  .nav:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    top: -5px;
+    right: 15px;
+    transform: rotate(47deg);
+  }
+
+}

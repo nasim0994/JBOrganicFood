@@ -1,0 +1,65 @@
+.categories button {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+
+  transition: all 0.3s;
+}
+.categories button:hover {
+  background: #ddd;
+}
+
+.dropdown {
+  max-height: 0px;
+  overflow: hidden;
+  display: none;
+
+  transition: max-height 0.3s;
+}
+
+.dropdown button {
+  border-bottom: 0;
+}
+
+.dropdownShow {
+  max-height: 500px;
+  display: block;
+}
+
+.hover-btn {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.hover-btn button {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e4ae0b;
+  border-radius: 100%;
+  margin-bottom: 8px;
+  color: #e4ae0b;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s;
+}
+.hover-btn button:hover {
+  background: #e4ae0b;
+  color: #000;
+}
+.product-card {
+  box-shadow: 0 20px 27px 0px #0000000d, 0 20px 27px 0px #0000000d !important;
+  border-radius: 8px;
+}
+.product-card:hover .hover-btn {
+  visibility: visible;
+  opacity: 1;
+}

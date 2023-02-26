@@ -3,14 +3,15 @@ import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
 import { useProduct } from "../../../ContextApi/ContextProvider";
 
 const CartItem = ({ product }) => {
-  const { handelRemoveCart, handelIncreaseCart } = useProduct();
-  //   const totalPrice = product.reduce(
-  //     (price, item) => item.quantity * item.price,
-  //     0
-  //   );
+  const { handelRemoveCart, handelIncreaseCart, handelDecreaseCart } =
+    useProduct();
+
+  const price = product.price;
+  const totalPrice = parseInt(product.quantity) * price;
+
   return (
     <tr className="border-b text-neutral-content/80">
-      <td className="p-4 ">
+      <td className="p-4">
         <div className="w-max flex gap-2 items-center">
           <img
             src={product.image}
@@ -25,23 +26,22 @@ const CartItem = ({ product }) => {
 
       <td className="px-6 py-4 font-semibold">
         <p className="w-max">
-          ৳<span> {product.price}</span>
+          ৳<span> {price}.00</span>
         </p>
       </td>
 
       <td className="px-6 py-4">
         <div className="w-max flex items-center gap-3">
-          <button className="text-2xl hover:text-neutral-content duration-200">
+          <button
+            onClick={() => handelDecreaseCart(product)}
+            className="text-2xl hover:text-neutral-content duration-200"
+          >
             <FiMinusCircle />
           </button>
           <div>
-            <input
-              type="number"
-              id="first_product"
-              className="w-14 border-2 border-neutral-content/80 text-neutral font-semibold outline-none rounded-lg px-2.5 py-px"
-              defaultValue={product.quantity}
-              required
-            />
+            <div className="w-14 py-px border-2 border-neutral-content/80 text-neutral font-semibold rounded-lg flex justify-center items-center">
+              {product.quantity}
+            </div>
           </div>
           <button
             onClick={() => handelIncreaseCart(product)}
@@ -54,7 +54,7 @@ const CartItem = ({ product }) => {
 
       <td className="px-6 py-4 font-semibold">
         <p className="w-max">
-          ৳<span> 1200</span>
+          ৳<span> {totalPrice}.00</span>
         </p>
       </td>
 

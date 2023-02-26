@@ -35,7 +35,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="lg:w-[30%] ">
-            <CheckoutCard />
+            <CheckoutCard cart={cart} />
           </div>
         </div>
       </div>

@@ -45,12 +45,20 @@ const ContextProvider = ({ children }) => {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
 
-    toast.success("Add to Cart Success");
+    toast.success("Add to Cart Success", {
+      position: "top-center",
+      autoClose: 2000,
+    });
   };
 
   // Remove Cart
   const handelRemoveCart = (product) => {
-    setCart(cart.filter((item) => item.id !== product.id));
+    const confirm = window.confirm(
+      "Are you sure Delete this product from Cart"
+    );
+    if (confirm) {
+      setCart(cart.filter((item) => item.id !== product.id));
+    }
   };
 
   // increase Cart Quantity
@@ -67,12 +75,26 @@ const ContextProvider = ({ children }) => {
     }
   };
 
+  const handelDecreaseCart = (product) => {
+    const existed = cart.find((item) => item.id === product.id);
+    if (existed.quantity > 1) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...existed, quantity: existed.quantity - 1 }
+            : item
+        )
+      );
+    }
+  };
+
   const contextInfo = {
     state,
     dispatch,
     handelAddToCart,
     handelRemoveCart,
     handelIncreaseCart,
+    handelDecreaseCart,
     cart,
   };
   return <Context.Provider value={contextInfo}>{children}</Context.Provider>;

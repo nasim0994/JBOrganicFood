@@ -2,47 +2,61 @@ import React, { useState } from "react";
 import { AiOutlineDisconnect } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const CheckoutCard = () => {
+const CheckoutCard = ({ cart }) => {
   const [couponToggle, setCouponToggle] = useState(false);
+
+  const subTotal = cart.reduce(
+    (price, item) => price + item.quantity * parseInt(item.price),
+    0
+  );
+
+  const shippingInfo = [
+    {
+      location: "Inside Dhaka:",
+      cost: 50,
+    },
+    {
+      location: "Outside Dhaka:",
+      cost: 100,
+    },
+  ];
+  const [shipping, setShipping] = useState("50");
+
+  console.log(shipping);
+
   return (
     <div className="mt-8 lg:mt-0 px-4 py-10 shadow-lg">
       <div className="flex justify-between items-center border-b border-neutral text-xl font-semibold mb-4">
         <p>SubTotal</p>
         <p>
-          ৳<span> 1200</span>
+          ৳<span> {subTotal}.00</span>
         </p>
       </div>
 
       <div className="mb-2 border-b pb-2">
         <p className="text-neutral mb-2">Shipping Charge</p>
-        <div className="flex justify-between items-center text-neutral font-medium ">
-          <label className="label justify-start gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="radio-10"
-              className="w-5 h-5 radio checked:bg-neutral-content"
-            />
-            <span className="label-text text-base">inside Dhaka:</span>
-          </label>
+        {shippingInfo.map((info, i) => (
+          <div
+            key={i}
+            className="flex justify-between items-center text-neutral font-medium "
+          >
+            <label className="label justify-start gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="shipping"
+                className="w-5 h-5 radio checked:bg-neutral-content"
+                value={info.cost}
+                onChange={(e) => setShipping(e.target.value)}
+                checked={info}
+              />
+              <span className="label-text text-base">{info.location}</span>
+            </label>
 
-          <p>
-            ৳<span> 50</span>
-          </p>
-        </div>
-        <div className="flex justify-between items-center text-neutral font-medium ">
-          <label className="label py-0 justify-start gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="radio-10"
-              className="w-5 h-5 radio checked:bg-neutral-content"
-            />
-            <span className="label-text text-base">outSide Dhaka:</span>
-          </label>
-
-          <p>
-            ৳<span> 100</span>
-          </p>
-        </div>
+            <p>
+              ৳<span> {info.cost}</span>
+            </p>
+          </div>
+        ))}
       </div>
 
       <div className="flex justify-between items-center text-neutral-content font-medium border-b py-1">

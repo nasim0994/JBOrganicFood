@@ -1,22 +1,23 @@
 import React from "react";
 import { FaOpencart, FaRegHeart } from "react-icons/fa";
-import { BiShow } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useProduct } from "../../../ContextApi/ContextProvider";
+import { UseContext } from "../../../ContextApi/ContextProvider";
 
 const Products = ({ product }) => {
-  const { handelAddToCart } = useProduct();
+  const { handelAddToCart, handelAddWishlist } = UseContext();
+
   return (
     <div className="p-2 rounded bg-base-100 product-card">
       <div className="mb-2 relative">
         <img src={product.image} alt="" className="rounded w-full h-64" />
 
-        <div className="hover-btn absolute top-0 flex flex-col right-0 bg-[#00000061] w-full h-full p-2 rounded">
-          <button>
+        <Link
+          to={`product/${product.id}`}
+          className="hover-btn absolute top-0 flex flex-col right-0 bg-[#00000061] w-full h-full p-2 rounded"
+        ></Link>
+        <div className="w-max absolute top-0 flex flex-col right-0 hover-btn">
+          <button onClick={() => handelAddWishlist(product)}>
             <FaRegHeart />
-          </button>
-          <button>
-            <BiShow />
           </button>
         </div>
       </div>
@@ -26,7 +27,7 @@ const Products = ({ product }) => {
           <h3 className="hover:text-primary duration-300">{product.title}</h3>
         </Link>
         <p className=" py-2">
-          ৳ <span>{product.price}</span>
+          ৳ <span>{product.price}.00</span>
         </p>
       </div>
 

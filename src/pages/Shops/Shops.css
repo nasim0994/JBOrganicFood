@@ -40,20 +40,22 @@
   font-size: 20px;
   width: 40px;
   height: 40px;
-  border: 1px solid #e4ae0b;
+  background: #e4ae0b;
   border-radius: 100%;
   margin-bottom: 8px;
-  color: #e4ae0b;
+  color: #000;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transition: all 0.3s;
+  transform: scale(0.96);
+
+  transition: all 0.2s;
 }
 .hover-btn button:hover {
-  background: #e4ae0b;
-  color: #000;
+  background: #dda600;
+  transform: scale(1);
 }
 .product-card {
   box-shadow: 0 20px 27px 0px #0000000d, 0 20px 27px 0px #0000000d !important;

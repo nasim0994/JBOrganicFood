@@ -2,29 +2,15 @@ import React, { useState } from "react";
 import "./Shops.css";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
-import { useProduct } from "../../ContextApi/ContextProvider";
+import { UseContext } from "../../ContextApi/ContextProvider";
 import Products from "./Products/Products";
 
 const Shops = () => {
   const [dropdownToggle, setDropdownToggle] = useState(false);
-  const {
-    state: { products, loading, error },
-  } = useProduct();
-
-  let content;
-
-  if (loading) {
-    content = <p>Loading...</p>;
-  }
-
-  if (!loading && !error && products.length) {
-    content = products?.map((product) => (
-      <Products key={product.id} product={product}></Products>
-    ));
-  }
+  const { products } = UseContext();
 
   return (
-    <div className="py-3 min-h-[60vh]">
+    <div className="pt-3 min-h-[60vh]">
       <div className="w-[90%] xl:w-[1280px] mx-auto">
         {/* Top Row */}
         <div className="sm:flex justify-between items-center">
@@ -112,10 +98,9 @@ const Shops = () => {
           <div className="w-full">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Product */}
-              {content}
-              {/* {products?.map((product) => (
+              {products?.map((product) => (
                 <Products key={product.id} product={product}></Products>
-              ))} */}
+              ))}
             </div>
           </div>
         </div>

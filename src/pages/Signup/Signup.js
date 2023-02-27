@@ -1,0 +1,95 @@
+import React from "react";
+import loginImage from "../../assets/Images/login.png";
+import { MdEmail, MdPersonAddAlt1 } from "react-icons/md";
+import { AiFillUnlock } from "react-icons/ai";
+import { RiGitRepositoryPrivateFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
+const Signup = () => {
+  return (
+    <div className="py-10 min-h-[70vh]">
+      <div className="w-[90%] xl:w-[1280px] mx-auto">
+        <div className="grid lg:grid-cols-2 items-center gap-10">
+          <div>
+            <img src={loginImage} alt="" className="w-[80%] mx-auto" />
+          </div>
+          <div className="w-[90%] sm:w-2/3 mx-auto">
+            <form action="">
+              <h3 className="text-3xl font-bold text-neutral">Sign Up</h3>
+
+              <div className="mt-10 text-neutral font-medium">
+                <div className="mb-6 relative">
+                  <span className="absolute bottom-2 text-neutral/80">
+                    <MdPersonAddAlt1 className="text-lg" />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    className="w-full border-b focus:border-b-primary outline-none pl-8 pb-1"
+                    required
+                  />
+                </div>
+
+                <div className="mb-6 relative">
+                  <span className="absolute bottom-2 text-neutral/80">
+                    <MdEmail />
+                  </span>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="w-full border-b focus:border-b-primary outline-none pl-8 pb-1"
+                    required
+                  />
+                </div>
+
+                <div className="mb-6 relative">
+                  <span className="absolute bottom-2 text-neutral/80">
+                    <AiFillUnlock className="text-lg" />
+                  </span>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="w-full border-b focus:border-b-primary outline-none pl-8 pb-1"
+                    required
+                  />
+                </div>
+
+                <div className="mb-6 relative">
+                  <span className="absolute bottom-2 text-neutral/80">
+                    <RiGitRepositoryPrivateFill className="text-lg" />
+                  </span>
+                  <input
+                    type="password"
+                    placeholder="Re Password"
+                    className="w-full border-b focus:border-b-primary outline-none pl-8 pb-1"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <div className="flex flex-col w-full border-opacity-50">
+                    <button
+                      type="submit"
+                      className="w-full py-2 font-bold text-neutral bg-primary rounded scale-[.98] hover:scale-[1] duration-300"
+                    >
+                      Sign Up
+                    </button>
+                    <div className="divider text-neutral/50">OR</div>
+                    <Link
+                      to="/login"
+                      className="text-center py-2 font-bold text-base-100 bg-gray-800 rounded scale-[.98] hover:scale-[1] duration-300"
+                    >
+                      Log In
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

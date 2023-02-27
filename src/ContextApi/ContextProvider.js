@@ -1,64 +1,44 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { toast } from "react-toastify";
-
-import { actionTypes } from "../state/productState/actionTypes";
-import { productReducer } from "../state/productState/productReducer";
-import { initialState } from "./../state/productState/productReducer";
-
+import productsData from "./../Data/productsData";
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(productReducer, initialState);
+  const [products, setProduct] = useState(productsData);
   const localStorageCart = JSON.parse(localStorage.getItem("JBCart"));
   const [cart, setCart] = useState(localStorageCart || []);
-
-  useEffect(() => {
-    dispatch({ type: actionTypes.FETCHING_START });
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({ type: actionTypes.FETCHING_SUCCESS, payload: data });
-      })
-      .catch(() => {
-        dispatch({ type: actionTypes.FETCHING_ERROR });
-      });
-  }, []);
+  const localStorageWishlist = JSON.parse(localStorage.getItem("JBWishlist"));
+  const [wishlist, setWishtlist] = useState(localStorageWishlist || []);
 
   // Set LocalStorage
   useEffect(() => {
     localStorage.setItem("JBCart", JSON.stringify(cart));
   }, [cart]);
 
-  // Add To Cart
-  const handelAddToCart = (product) => {
-    const existed = cart.find((item) => item.id === product.id);
+  useEffect(() => {
+    localStorage.setItem("JBWishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
+
+  // Add To cart
+  const handelAddToCart = (product, quantity) => {
+    const existed = cart.find((item) => item.id == product.id);
     if (existed) {
       setCart(
         cart.map((item) =>
           item.id === product.id
-            ? { ...existed, quantity: existed.quantity + 1 }
+            ? { ...existed, quantity: quantity || existed.quantity + 1 }
             : item
         )
       );
     } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: quantity || 1 }]);
     }
 
     toast.success("Add to Cart Success", {
       position: "top-center",
       autoClose: 2000,
     });
-  };
-
-  // Remove Cart
-  const handelRemoveCart = (product) => {
-    const confirm = window.confirm(
-      "Are you sure Delete this product from Cart"
-    );
-    if (confirm) {
-      setCart(cart.filter((item) => item.id !== product.id));
-    }
   };
 
   // increase Cart Quantity
@@ -88,19 +68,56 @@ const ContextProvider = ({ children }) => {
     }
   };
 
+  // Delete Cart
+  const handelDeleteCart = (product) => {
+    const confirm = window.confirm("Are you sure delete this item");
+    if (confirm) {
+      const newCart = cart.filter(
+        (cartProduct) => cartProduct.id !== product.id
+      );
+      setCart(newCart);
+    }
+  };
+
+  // Add To cart
+  const handelAddWishlist = (product) => {
+    const existed = wishlist.find((item) => item.id == product.id);
+    if (!existed) {
+      setWishtlist([...wishlist, product]);
+    }
+
+    toast.success("Add to Wishlist", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+  };
+
+  // Delete Cart
+  const handelDeleteWishlist = (product) => {
+    const confirm = window.confirm("Are you sure delete this item");
+    if (confirm) {
+      const newWishlist = wishlist.filter(
+        (wishlistProduct) => wishlistProduct.id !== product.id
+      );
+      setWishtlist(newWishlist);
+    }
+  };
+
   const contextInfo = {
-    state,
-    dispatch,
+    products,
+    cart,
     handelAddToCart,
-    handelRemoveCart,
+    handelDeleteCart,
     handelIncreaseCart,
     handelDecreaseCart,
-    cart,
+    handelAddWishlist,
+    handelDeleteWishlist,
+    wishlist,
   };
   return <Context.Provider value={contextInfo}>{children}</Context.Provider>;
 };
 
-export const useProduct = () => {
+export const UseContext = () => {
   const context = useContext(Context);
   return context;
 };

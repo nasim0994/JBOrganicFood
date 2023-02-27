@@ -16,12 +16,15 @@ import {
   AiOutlineHeart,
   AiOutlineMenu,
 } from "react-icons/ai";
-import { useProduct } from "../../ContextApi/ContextProvider";
+import { UseContext } from "../../ContextApi/ContextProvider";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
-
-  const { cart } = useProduct();
+  const { cart } = UseContext();
+  const subTotal = cart.reduce(
+    (price, item) => price + item.quantity * parseInt(item.price),
+    0
+  );
 
   return (
     <>
@@ -54,7 +57,7 @@ const Header = () => {
 
               <div className="sm:border-l border-neutral pl-4">
                 <Link
-                  to=""
+                  to="login"
                   className="text-base flex  gap-1 items-center font-semibold hover:opacity-80 duration-100"
                 >
                   <AiOutlineLogin />
@@ -91,7 +94,7 @@ const Header = () => {
 
               <div className="flex gap-4 items-center">
                 <Link
-                  to=""
+                  to="wishlist"
                   className="relative inline-flex items-center bg-primary hover:bg-opacity-80 duration-200 p-2 rounded-full text-neutral text-xl"
                 >
                   <AiOutlineHeart />
@@ -109,7 +112,7 @@ const Header = () => {
                     </div>
                   </Link>
                   <h2 className="font-semibold pl-2 text-xl">
-                    $<span>150.00</span>
+                    $<span>{subTotal}</span>
                   </h2>
                 </div>
               </div>
@@ -156,7 +159,7 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/Shops"
+                    to="/shop"
                     className="hover:text-primary"
                     onClick={() => setMenuToggle(!menuToggle)}
                   >
@@ -164,17 +167,12 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/faq" className="hover:text-primary ">
-                    Faq
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink
-                    to="/aboutUs"
+                    to="/faq"
                     className="hover:text-primary"
                     onClick={() => setMenuToggle(!menuToggle)}
                   >
-                    About Us
+                    Faq
                   </NavLink>
                 </li>
                 <li>

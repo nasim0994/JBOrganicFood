@@ -10,7 +10,7 @@ const Shops = () => {
   const { products } = UseContext();
 
   return (
-    <div className="pt-3 min-h-[60vh]">
+    <div className="pt-3 pb-10 min-h-[60vh]">
       <div className="w-[90%] xl:w-[1280px] mx-auto">
         {/* Top Row */}
         <div className="sm:flex justify-between items-center">

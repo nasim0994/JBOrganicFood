@@ -17,7 +17,7 @@ const ShopComponent = () => {
             </p>
             <button className="scale-[.96] hover:scale-[1] duration-300">
               <Link
-                to=""
+                to="shop"
                 className="uppercase bg-primary shadow rounded px-10 py-2.5 font-semibold "
               >
                 Shop

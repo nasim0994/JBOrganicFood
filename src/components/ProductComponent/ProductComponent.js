@@ -30,7 +30,7 @@ const ProductComponent = () => {
               Temporibus, dolorum.
             </p>
             <p
-              className="flex items-center text-xl font-medium mb-6 text-secondary"
+              className="flex items-center text-xl font-medium mb-6 text-neutral"
               data-aos="fade-up"
               data-aos-duration="1500"
               data-aos-once="true"
@@ -42,6 +42,7 @@ const ProductComponent = () => {
               className="scale-[.96] hover:scale-[1] duration-300"
               data-aos="fade-up"
               data-aos-duration="1500"
+              data-aos-offset="50"
             >
               <Link
                 to={`shop/product/${products[0].id}`}

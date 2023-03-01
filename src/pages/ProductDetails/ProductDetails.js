@@ -58,7 +58,7 @@ const ProductDetails = () => {
             <p className="text-2xl font-semibold mb-2">
               ৳ <span>{product?.price}</span>
             </p>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center mt-6">
               <div className="w-max flex items-center gap-3">
                 <button
                   onClick={handelIncreaseQuantity}
@@ -82,13 +82,15 @@ const ProductDetails = () => {
               <button
                 onClick={() => handelAddToCart(product, quantity)}
                 className="w-40 bg-primary/80 hover:bg-primary text-neutral px-2 py-1.5 rounded font-semibold duration-200 flex items-center gap-1 justify-center"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
               >
                 <FaOpencart />
                 Add To Card
               </button>
             </div>
 
-            <div className="mt-4 border-y border-dashed">
+            <div className="mt-6 border-y border-dashed">
               <p className="py-1 text-sm">
                 Category:{" "}
                 <span className="text-secondary font-semibold">
@@ -97,7 +99,7 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            <div className="mt-4 flex gap-4">
+            <div className="mt-6 flex gap-4">
               <h2>Share:</h2>
               <div className="flex items-center gap-4 pr-4 text-2xl text-neutral-content opacity-70">
                 <Link
@@ -194,6 +196,8 @@ const ProductDetails = () => {
                 <button
                   type="submit"
                   className="font-bold bg-primary text-neutral px-8 py-2 rounded scale-[.98] hover:scale-[1] duration-300"
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
                 >
                   Submit
                 </button>

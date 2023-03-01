@@ -10,7 +10,11 @@ const Cart = () => {
   return (
     <div className="py-5 min-h-[60vh]">
       <div className="w-[90%] xl:w-[1280px] mx-auto">
-        <p className="text-center text-3xl font-semibold mb-8">
+        <p
+          className="text-center text-3xl font-semibold mb-8"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           Your Cart - <span>{cart.length}</span>{" "}
           {cart.length < 2 ? "Item" : "Items"}
         </p>

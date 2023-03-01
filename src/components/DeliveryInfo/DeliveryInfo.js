@@ -7,7 +7,12 @@ const DeliveryInfo = () => {
     <div className="py-10 bg-slate-100">
       <div className="w-[90%] xl:w-[1280px] mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-          <div className="text-center">
+          <div
+            className="text-center"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
             <div className="text-4xl w-16 h-16 mx-auto border border-primary rounded-full flex justify-center items-center text-neutral-content opacity-90">
               <TbTruckDelivery />
             </div>
@@ -19,7 +24,12 @@ const DeliveryInfo = () => {
             </p>
           </div>
 
-          <div className="text-center">
+          <div
+            className="text-center"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
             <div className="text-4xl w-16 h-16 mx-auto border border-secondary rounded-full flex justify-center items-center text-neutral-content opacity-90">
               <FaDollarSign />
             </div>
@@ -29,7 +39,13 @@ const DeliveryInfo = () => {
               <span className="font-semibold">50</span>
             </p>
           </div>
-          <div className="text-center">
+
+          <div
+            className="text-center"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
             <div className="text-4xl w-16 h-16 mx-auto border border-primary rounded-full flex justify-center items-center text-neutral-content opacity-90">
               <FaDollarSign />
             </div>

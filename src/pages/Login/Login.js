@@ -14,7 +14,7 @@ const Login = () => {
           </div>
           <div className="w-[90%] sm:w-2/3 mx-auto">
             <form action="">
-              <h3 className="text-3xl font-bold text-neutral">Sign in</h3>
+              <h3 className="text-3xl font-bold text-neutral">LogIn</h3>
 
               <div className="mt-10 text-neutral font-medium">
                 <div className="mb-6 relative">

@@ -34,13 +34,26 @@
 
 @media only screen and (max-width: 1024px) {
   .videoSlider .swiper-button-prev {
-    left: 85% !important;
+    left: 87% !important;
   }
   .videoSlider .swiper-button-next {
-    left: 90% !important;
+    left: 93% !important;
   }
 }
 
 .videoSlider.reviewSlider {
   padding-top: 80px !important;
+  padding-bottom: 10px;
+}
+
+.customer-img {
+  -webkit-mask-image: url("../../assets/Images/graph1.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+
+  width: 85px;
+  height: 85px;
+  margin-top: -7px;
+  margin-left: -11px;
 }

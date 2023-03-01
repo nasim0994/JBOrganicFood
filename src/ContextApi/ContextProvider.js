@@ -84,12 +84,16 @@ const ContextProvider = ({ children }) => {
     const existed = wishlist.find((item) => item.id == product.id);
     if (!existed) {
       setWishtlist([...wishlist, product]);
+      toast.success("Add to Wishlist", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Already Add this items", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
-
-    toast.success("Add to Wishlist", {
-      position: "top-center",
-      autoClose: 2000,
-    });
   };
 
   // Delete Cart

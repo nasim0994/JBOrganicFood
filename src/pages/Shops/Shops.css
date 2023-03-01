@@ -1,18 +1,3 @@
-.categories button {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  border-radius: 5px;
-
-  transition: all 0.3s;
-}
-.categories button:hover {
-  background: #ddd;
-}
-
 .dropdown {
   max-height: 0px;
   overflow: hidden;
@@ -21,15 +6,20 @@
   transition: max-height 0.3s;
 }
 
-.dropdown button {
-  border-bottom: 0;
-}
-
 .dropdownShow {
-  max-height: 500px;
+  max-height: max-content;
   display: block;
 }
 
+/* Product card */
+.product-card {
+  box-shadow: 0 20px 27px 0px #0000000d, 0 20px 27px 0px #0000000d !important;
+  border-radius: 8px;
+}
+.product-card:hover .hover-btn {
+  visibility: visible;
+  opacity: 1;
+}
 .hover-btn {
   visibility: hidden;
   opacity: 0;
@@ -57,11 +47,13 @@
   background: #dda600;
   transform: scale(1);
 }
-.product-card {
-  box-shadow: 0 20px 27px 0px #0000000d, 0 20px 27px 0px #0000000d !important;
-  border-radius: 8px;
+
+.categorySidebar ul li:last-child {
+  border-bottom: 0;
 }
-.product-card:hover .hover-btn {
-  visibility: visible;
-  opacity: 1;
+.categorySidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.categorySidebar::-webkit-scrollbar-thumb {
+  background: #ddd;
 }

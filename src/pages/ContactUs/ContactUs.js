@@ -7,8 +7,7 @@ const ContactUs = () => {
         <div className="grid lg:grid-cols-2 gap-10 mt-10">
           <div className="neutral-content">
             <h3 className="text-3xl font-bold py-3">
-              Questions, Comments? <br />
-              You tell us. We listen.
+              Questions, Comments? You tell us. We listen.
             </h3>
 
             <div>
@@ -80,6 +79,8 @@ const ContactUs = () => {
               <button
                 type="submit"
                 className="w-[140px] py-3 shadow rounded text-white bg-primary font-semibold border-paragraph border-opacity-50 scale-[.96] hover:scale-[1] duration-300"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
               >
                 SEND
               </button>

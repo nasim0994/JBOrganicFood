@@ -10,12 +10,22 @@ const ShopComponent = () => {
             <h2 className="text-5xl font-semibold mb-2">
               Try our rich and elegant Honey Nut
             </h2>
-            <p className="text-lg font-medium mb-6 text-neutral-content">
+            <p
+              className="text-lg font-medium mb-6 text-neutral-content"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque,
               laborum. Minima nisi inventore consequatur libero corporis
               voluptas, quibusdam vitae quas?
             </p>
-            <button className="scale-[.96] hover:scale-[1] duration-300">
+            <button
+              className="scale-[.96] hover:scale-[1] duration-300"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-offset="100"
+            >
               <Link
                 to="shop"
                 className="uppercase bg-primary shadow rounded px-10 py-2.5 font-semibold "

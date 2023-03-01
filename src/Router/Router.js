@@ -11,6 +11,8 @@ import Wishlist from "../pages/Wishlist/Wishlist";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import TermsOfUse from "../pages/TermsOfUse/TermsOfUse";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/terms",
+        element: <TermsOfUse />,
       },
 
       {

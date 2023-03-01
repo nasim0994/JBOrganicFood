@@ -7,7 +7,11 @@ const Wishlist = () => {
   return (
     <div className="py-10 min-h-[70vh]">
       <div className="w-[90%] xl:w-[1280px] mx-auto">
-        <p className="text-center text-3xl font-semibold mb-8">
+        <p
+          className="text-center text-3xl font-semibold mb-8"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           Your Wishlist - {wishlist.length}{" "}
           {wishlist.length < 2 ? "Item" : "Items"}
         </p>

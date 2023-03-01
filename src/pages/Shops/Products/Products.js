@@ -23,7 +23,11 @@ const Products = ({ product }) => {
       </div>
 
       <div className="text-center text-lg font-semibold">
-        <Link to={`product/${product.id}`}>
+        <Link
+          to={`product/${product.id}`}
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+        >
           <h3 className="hover:text-primary duration-300">{product.title}</h3>
         </Link>
         <p className=" py-2">

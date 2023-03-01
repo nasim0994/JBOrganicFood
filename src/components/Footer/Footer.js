@@ -45,7 +45,7 @@ const Footer = () => {
               <ul className="list-disc pl-4">
                 <li>
                   <Link
-                    to=""
+                    to="privacy"
                     className="hover:text-primary hover:underline  duration-200"
                   >
                     Privacy Policy
@@ -53,7 +53,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to=""
+                    to="terms"
                     className="hover:text-primary hover:underline  duration-200"
                   >
                     Terms of Use

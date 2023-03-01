@@ -12,16 +12,37 @@ const ProductComponent = () => {
       <div className="w-[90%] xl:w-[1280px] mx-auto">
         <div className="grid md:grid-cols-2 md:gap-20 justify-between items-center text-neutral">
           <div className="order-last md:order-first">
-            <h2 className="text-4xl font-semibold mb-2">{products[0].title}</h2>
-            <p className="mb-2 font-semibold md:w-2/3 text-neutral-content">
+            <h2
+              className="text-4xl font-semibold mb-2"
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
+              {products[0].title}
+            </h2>
+            <p
+              className="mb-2 font-semibold md:w-2/3 text-neutral-content"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Temporibus, dolorum.
             </p>
-            <p className="flex items-center text-xl font-medium mb-6">
+            <p
+              className="flex items-center text-xl font-medium mb-6 text-secondary"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
               <TbCurrencyTaka /> <span>{products[0].price}.00</span>
             </p>
 
-            <button className="scale-[.96] hover:scale-[1] duration-300">
+            <button
+              className="scale-[.96] hover:scale-[1] duration-300"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
               <Link
                 to={`shop/product/${products[0].id}`}
                 className="uppercase bg-primary shadow rounded px-6 py-2.5 font-semibold"
